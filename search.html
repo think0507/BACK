@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+
+
+    <div class="search-container">
+
+        <div class="search-index-logo">
+            <div id="search-logo">
+                <img src="ang.png" title="백쥐로고" alt="로고이미지실패" class="Image" width="100" height="40">
+            </div>
+        </div>
+
+        <div class="search-summoner-search">
+            <input type="text" name="userName" class="summoner-search-text" onkeyup="enterkey();"
+                placeholder="소환사명을 입력하세요">
+            <input type="button" name="sendName" class="summoner-search-button" value="검색">
+        </div>
+
+    </div>
+
+
+    <div class="summoner-info-form">
+
+        <div class="summoner-info-form-container">
+            <div class="summoner-icon test">
+                <img id="summoner-icon" src="" height="100" width="100" alt="소환사아이콘불러오기실패">
+            </div>
+
+            <div class="summoner-level test" id="summoner-level-number">
+                레벨
+            </div>
+
+            <div class="summoner-name test" id="search-username">
+                소환사 이름
+            </div>
+        </div>
+
+        <div class="summoner-tier-info">
+            <div class="user-rank-tier-container">
+
+                <div class="user-solo-rank-tier-img">
+                    <img id="user-solo-rank-tier-imgfile" src="" height="100" width="100">
+                </div>
+
+                <div class="user-solo-rank-tier-info">
+                    <div class="solo-rank-text">
+                        "솔로 랭크"
+                    </div>
+                    <div class="solo-rank-info-text-container">
+                        <div id="solo-rank-info-text-container-tier"></div>
+                        <div id="solo-rank-info-text-container-leaguepoint"></div>
+                        <div id="solo-rank-info-text-container-승급전"></div>
+                        <div id="solo-rank-info-text-container-전적"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-jayu-rank-tier-container">
+
+                <div class="user-jayu-rank-tier-img">
+                    <img id="user-jayu-rank-tier-imgfile" src="" height="100" width="100">
+                </div>
+
+                <div class="user-jayu-rank-tier-info">
+                    <div class="solo-rank-text">
+                        "자유 랭크"
+                    </div>
+                    <div class="jayu-rank-info-text-container">
+                        <div id="jayu-rank-info-text-container-tier"></div>
+                        <div id="jayu-rank-info-text-container-leaguepoint"></div>
+                        <div id="jayu-rank-info-text-container-승급전"></div>
+                        <div id="jayu-rank-info-text-container-전적"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="match">
+        <div class="match-champion-icon">
+            <img id="match-champion-icon" src="" height="100" width="100">
+        </div>
+        <div class="match-champion-spell">
+            <div class="match-champion-spell1">
+
+            </div>
+            <div class="match-champion-spell2">
+
+            </div>
+        </div>
+        <div class="match-champion-perk">
+            <div class="match-champion-perk1">
+
+            </div>
+            <div class="match-champion-perk2">
+
+            </div>
+        </div>
+        <div class="match-champion-kda">
+
+        </div>
+        <div class="match-champion-kda-avg">
+
+        </div>
+        <div class="match-multykill">
+
+        </div>
+        <div class="match-champion-level">
+
+        </div>
+        <div class="match-minionkill">
+
+        </div>
+        <div class="match-killpercent">
+
+        </div>
+        <div class="match-champion-item">
+
+        </div>
+    </div>
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+
+<body>
+
+
+    <script>
+        let accountId
+        let profileIconId
+        let revisionDate
+        let id
+        let puuid
+        let summonerLevel
+        let user_solo_rank_tier
+        let latestDataDragonVer;
+        let gameId = "4788185139"
+
+        temp = location.href.split("?")
+        UserName = unescape(temp[1]);
+        let apikey = "RGAPI-1464151f-a2af-4f0b-af69-906847b51c90"
+        //닉네임으로 어카운트아이디 아이디 아이콘 푸이드 레벨 받아오기;
+        $.ajax({
+            type: 'GET',
+            async: false,
+            url: 'https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + UserName + '?api_key=' + apikey,
+            success: function (match) {
+                accountId = match.accountId;
+                profileIconId = match.profileIconId;
+                revisionDate = match.revisionDate;
+                id = match.id;
+                puuid = match.puuid;
+                summonerLevel = match.summonerLevel;
+                document.getElementById("summoner-level-number").innerText = "LV." + summonerLevel;
+                document.getElementById("search-username").innerText = UserName;
+            }
+        })
+        //랭크점수 받아오기
+        $.ajax({
+            type: 'GET',
+            async: false,
+            url: 'https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/' + id + '?api_key=' + apikey,
+            success: function (data) {
+                user_solo_rank_tier = data[0].tier;
+                user_solo_rank_rank = data[0].rank;
+                user_solo_rank_point = data[0].leaguePoints;
+                user_solo_rank_win = data[0].wins;
+                user_solo_rank_losses = data[0].losses;
+
+                user_jayu_rank_tier = data[1].tier;
+                user_jayu_rank_rank = data[1].rank;
+                user_jayu_rank_point = data[1].leaguePoints;
+                user_jayu_rank_win = data[1].wins;
+                user_jayu_rank_losses = data[1].losses;
+
+
+                document.getElementById("user-solo-rank-tier-imgfile").src = "ranked-emblems/Emblem_" + user_solo_rank_tier + ".png";
+                document.getElementById("user-jayu-rank-tier-imgfile").src = "ranked-emblems/Emblem_" + user_jayu_rank_tier + ".png";
+                document.getElementById("solo-rank-info-text-container-tier").innerText = "티어 : " + user_solo_rank_tier + user_solo_rank_rank;
+                document.getElementById("solo-rank-info-text-container-leaguepoint").innerText = "포인트 : " + user_solo_rank_point;
+                document.getElementById("solo-rank-info-text-container-승급전").innerText = "승급전은 아직 준비중";
+                document.getElementById("solo-rank-info-text-container-전적").innerText = (user_solo_rank_win + user_solo_rank_losses) + "전 " + user_solo_rank_win + "승 " + user_solo_rank_losses + "패 ";
+                document.getElementById("jayu-rank-info-text-container-tier").innerText = "티어 : " + user_jayu_rank_tier + user_jayu_rank_rank;
+                document.getElementById("jayu-rank-info-text-container-leaguepoint").innerText = "포인트 : " + user_jayu_rank_point;
+                document.getElementById("jayu-rank-info-text-container-승급전").innerText = "승급전은 아직 준비중";
+                document.getElementById("jayu-rank-info-text-container-전적").innerText = (user_jayu_rank_win + user_jayu_rank_losses) + "전 " + user_jayu_rank_win + "승 " + user_jayu_rank_losses + "패 ";
+
+            }
+        })
+
+        function getLatestDataDragonURL() {
+            return "https://ddragon.leagueoflegends.com/cdn/" + latestDataDragonVer;
+        }
+
+        let getLatestDataDragonVersionRequest = $.ajax({
+            url: "https://ddragon.leagueoflegends.com/api/versions.json",
+            type: "GET",
+            async: false,
+            dataType: "json",
+            success: function (res) {
+                latestDataDragonVer = res[0];
+                document.getElementById("summoner-icon").src = "http://ddragon.leagueoflegends.com/cdn/" + latestDataDragonVer + "/img/profileicon/" + profileIconId + ".png";
+                // let loadInitialDataRequestCallback = [];
+                // let getIconJsonRequest = $.ajax({
+                //     url: getLatestDataDragonURL() + "/data/ko_KR/item.json",
+                //     type: "GET",
+                //     dataType: "json",
+                //     success: function (res) {
+                //         itemImageData = res.data;
+                //     }
+                // })
+            }
+        })
+
+        $.ajax({
+            type: 'GET',
+            async: false,
+            url: 'https://kr.api.riotgames.com/lol/match/v4/matches/' + gameId + '?api_key=' + apikey,
+            success: function (match) {
+                var newJson = match.participantIdentities.filter(function (element) {
+                    console.log(element.player.summonerName);
+                    return element.player.summonerId == id;
+                }
+                );
+                console.log(newJson[0].player.summonerName);
+            }
+        })
+
+        function load_p_id(u_id) {
+            var a;
+            $.ajax({
+                type: 'GET',
+                async: false,
+                url: 'https://kr.api.riotgames.com/lol/match/v4/matches/' + gameId + '?api_key=' + apikey,
+                success: function (match) {
+                    var newJson = match.participantIdentities.filter(function (element) {
+                        console.log(element.player.summonerName);
+                        return element.player.summonerId == u_id;
+                    }
+                    );
+                    a = newJson
+                    console.log(newJson[0].player.summonerName);
+                }
+            });
+            return a[0].participantId;
+        }
+        
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

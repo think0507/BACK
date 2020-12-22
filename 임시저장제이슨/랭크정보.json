@@ -1,0 +1,153 @@
+[
+    {
+        "leagueId": "dd685274-f8f0-43e3-9e44-5a96eea23fe4",
+        "queueType": "RANKED_SOLO_5x5",
+        "tier": "GOLD",
+        "rank": "II",
+        "summonerId": "Fv50Fj7dQnytUJoo2CGWFQZf6JQJo1S4ZtQntg_7kLyXcyg",
+        "summonerName": "백 동 렬",
+        "leaguePoints": 50,
+        "wins": 277,
+        "losses": 274,
+        "veteran": false,
+        "inactive": false,
+        "freshBlood": false,
+        "hotStreak": false
+    },
+    {
+        "leagueId": "65b037c3-141c-4f23-a061-7d800a98b544",
+        "queueType": "RANKED_FLEX_SR",
+        "tier": "SILVER",
+        "rank": "III",
+        "summonerId": "Fv50Fj7dQnytUJoo2CGWFQZf6JQJo1S4ZtQntg_7kLyXcyg",
+        "summonerName": "백 동 렬",
+        "leaguePoints": 0,
+        "wins": 38,
+        "losses": 33,
+        "veteran": false,
+        "inactive": false,
+        "freshBlood": false,
+        "hotStreak": false
+    }
+]
+https: //kr.api.riotgames.com/lol/league/v4/entries/by-summoner/uV3oJPr_lxae-CuUjDtjDxNjhj_xoKDGXsVH3IRFatACSw?api_key=RGAPI-1464151f-a2af-4f0b-af69-906847b51c90
+Sj3NPni50_0ao1MY5Jj22TgNgydWNrqT4pb_tdGnSJpWPoA : 승급전 1승0패
+BVyXMpq04tEQjk2prMNuyHW_dk6VKs6fbH4lC02TiiStilM : 승급전 1패 1승
+uV3oJPr_lxae-CuUjDtjDxNjhj_xoKDGXsVH3IRFatACSw : 승격전 패승승
+
+[
+    {
+        "leagueId": "65b037c3-141c-4f23-a061-7d800a98b544",
+        "queueType": "RANKED_FLEX_SR",
+        "tier": "SILVER",
+        "rank": "III",
+        "summonerId": "Sj3NPni50_0ao1MY5Jj22TgNgydWNrqT4pb_tdGnSJpWPoA",
+        "summonerName": "01051561801",
+        "leaguePoints": 100,
+        "wins": 50,
+        "losses": 47,
+        "veteran": false,
+        "inactive": false,
+        "freshBlood": false,
+        "hotStreak": false,
+        "miniSeries": {
+            "target": 2,
+            "wins": 1,
+            "losses": 0,
+            "progress": "WNN"
+        }
+    },
+    {
+        "leagueId": "96637189-21a8-4562-94d9-a645a2dcb603",
+        "queueType": "RANKED_SOLO_5x5",
+        "tier": "SILVER",
+        "rank": "IV",
+        "summonerId": "Sj3NPni50_0ao1MY5Jj22TgNgydWNrqT4pb_tdGnSJpWPoA",
+        "summonerName": "01051561801",
+        "leaguePoints": 0,
+        "wins": 25,
+        "losses": 24,
+        "veteran": false,
+        "inactive": false,
+        "freshBlood": false,
+        "hotStreak": false
+    }
+]
+
+[
+    {
+        "leagueId": "ca6a46ef-77b7-4ac6-a1b4-e3862032e257",
+        "queueType": "RANKED_SOLO_5x5",
+        "tier": "SILVER",
+        "rank": "III",
+        "summonerId": "BVyXMpq04tEQjk2prMNuyHW_dk6VKs6fbH4lC02TiiStilM",
+        "summonerName": "첫사랑 가은",
+        "leaguePoints": 37,
+        "wins": 202,
+        "losses": 224,
+        "veteran": false,
+        "inactive": false,
+        "freshBlood": false,
+        "hotStreak": false
+    },
+    {
+        "leagueId": "65b037c3-141c-4f23-a061-7d800a98b544",
+        "queueType": "RANKED_FLEX_SR",
+        "tier": "SILVER",
+        "rank": "III",
+        "summonerId": "BVyXMpq04tEQjk2prMNuyHW_dk6VKs6fbH4lC02TiiStilM",
+        "summonerName": "첫사랑 가은",
+        "leaguePoints": 100,
+        "wins": 49,
+        "losses": 48,
+        "veteran": false,
+        "inactive": false,
+        "freshBlood": false,
+        "hotStreak": false,
+        "miniSeries": {
+            "target": 2,
+            "wins": 1,
+            "losses": 1,
+            "progress": "LWN"
+        }
+    }
+]
+
+[
+    {
+        "leagueId": "04eeaa9f-0b8f-468a-8509-f15d3b07a301",
+        "queueType": "RANKED_SOLO_5x5",
+        "tier": "PLATINUM",
+        "rank": "III",
+        "summonerId": "uV3oJPr_lxae-CuUjDtjDxNjhj_xoKDGXsVH3IRFatACSw",
+        "summonerName": "연패레게노",
+        "leaguePoints": 0,
+        "wins": 231,
+        "losses": 233,
+        "veteran": false,
+        "inactive": false,
+        "freshBlood": false,
+        "hotStreak": false
+    },
+    {
+        "leagueId": "65b037c3-141c-4f23-a061-7d800a98b544",
+        "queueType": "RANKED_FLEX_SR",
+        "tier": "SILVER",
+        "rank": "I",
+        "summonerId": "uV3oJPr_lxae-CuUjDtjDxNjhj_xoKDGXsVH3IRFatACSw",
+        "summonerName": "연패레게노",
+        "leaguePoints": 100,
+        "wins": 24,
+        "losses": 21,
+        "veteran": false,
+        "inactive": false,
+        "freshBlood": false,
+        "hotStreak": false,
+        "miniSeries": {
+            "target": 3,
+            "wins": 2,
+            "losses": 1,
+            "progress": "LWWNN"
+        }
+    }
+]
